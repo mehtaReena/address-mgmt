@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
   let token = header.split(" ")[1];
   let user = jwt.decode(token);
   let params = req.query
-  let result = await addressController.allAddress(user.email, params);
+  let result = await addressController.printAddress(user.email, params);
   res.status(200).send(result.result);
 })
 

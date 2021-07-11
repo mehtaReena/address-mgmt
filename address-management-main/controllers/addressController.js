@@ -29,7 +29,7 @@ const deleteAddress = async (email, inputId) => {
     }
 }
 
-const allAddress = async (email, params) => {
+const printAddress = async (email, params) => {
     let user = await User.findOne({ email }).populate("addresses")
     let addresses = user.addresses.filter(address => {
         for (let field in params) {
@@ -57,6 +57,6 @@ const updateAddress = async (inputId, info) => {
 module.exports = {
     addAddress,
     deleteAddress,
-    allAddress,
+    printAddress,
     updateAddress
 }
